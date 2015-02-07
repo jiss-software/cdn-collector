@@ -1,0 +1,4 @@
+{
+  "targets": [ "jquery", "bootstrap" ],
+  "skipWords": [ "alpha", "beta", "rc", "build", "snapshot" ]
+}

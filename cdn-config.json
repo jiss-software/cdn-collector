@@ -1,4 +1,24 @@
 {
-  "targets": [ "jquery", "bootstrap" ],
+  "targets": [
+    "sugar",
+    "bootstrap",
+    "jquery",
+    "angular",
+    "requirejs",
+    "requirejs-text",
+    "jquery-ui",
+    "fontawesome",
+    "angular-resource",
+    "angular-cookies",
+    "angular-sanitize",
+    "angular-route",
+    "angular-local-storage",
+    "noty",
+    "angular-google-chart",
+    "angular-input-masks",
+    "angular-i18n",
+    "angular-mocks",
+    "angular-scenario"
+  ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot" ]
 }

@@ -6,6 +6,10 @@ import shutil
 import re
 
 
+def call(cmd):
+    return Popen([cmd], stdout=PIPE, shell=True).communicate()[0]
+
+
 def move(file, origin, destination):
     if not file:
         return
@@ -44,23 +48,20 @@ print 'Rebuild CDN collection.'
 for target in config['targets']:
     print 'Collect %s libraries.' % target
 
-    proc = Popen(["bower info %s" % target], stdout=PIPE, shell=True)
+    lib_info = call("bower info %s -j" % target)
+    print lib_info
+    lib_info = lib_info[lib_info.rfind('}]'):]
 
-    start = False
-    for line in proc.communicate()[0].splitlines():
-        if not start:
-            if 'Available versions:' in line:
-                start = True
+    print "XXXXXXXXX" + str(lib_info.rfind('}\]'))
+    print lib_info
 
-            continue
+    break
+    versions = [
+        version for version in json.loads(lib_info)['versions']
+        if not check_skip(version, config['skipWords'])
+    ]
 
-        if 'You can request' in line:
-            break
-
-        if check_skip(line, config['skipWords']):
-            continue
-
-        version = line.strip()[2:]
+    for version in versions:
         print 'Version found %s - %s.' % (target, version)
 
         if not os.path.isdir(target):
@@ -74,38 +75,29 @@ for target in config['targets']:
         else:
             os.mkdir("%s/%s" % (target, version))
 
-        proc_info = Popen(["bower info %s#%s" % (target, version)], stdout=PIPE, shell=True)
+        info = call("bower info %s#%s -j" % (target, version))
+        info = json.loads(info[info.rfind('}]') + 2:])
+
         link = None
+        for entry in info:
+            if entry["id"] is "download":
+                link = entry["message"]
+                break
 
-        info = proc_info.communicate()[0]
-        info = info[info.find('{'):info.rfind('}') + 1].replace(': ', '": ')
-        for i, match in enumerate(re.finditer('( [A-za-z]+":)', info)):
-            pos = match.start() + 1 + i
-            info = info[:pos] + '"' + info[pos:]
+        if not link:
+            link = 'http/%s/archive/%s.tar.gz' % (
+                re.finditer('git://(.c*)\.git', info[0]["message"]).next().groups()[0], version
+            )
 
-        info = info.replace('\'', '"')
-        info = json.loads(info)
+        print call('wget --directory-prefix="%s" "%s"' % (directory, link))
 
-        if info['homepage']:
-            wget_cmd = 'wget --directory-prefix="%(target)s/%(version)s" "%(link)s/archive/%(version)s.tar.gz"' % {
-                'target': target,
-                'version': version,
-                'link': info['homepage']
-            }
+        #if os.listdir(directory):
+        #    archive = "%s/%s" % (directory, os.listdir(directory)[0])
+        #    tfile = tarfile.open(archive, 'r:gz')
+        #    tfile.extractall(directory)
+        #    os.remove(archive)
 
-            print wget_cmd
-            proc_download = Popen([wget_cmd], stdout=PIPE, shell=True)
-            print proc_download.communicate()[0]
+        #    location = "%s/%s" % (directory, os.listdir(directory)[0])
+        #    move(info.get('min', info.get('scripts')), location, directory)
 
-            archive = "%s/%s" % (directory, os.listdir(directory)[0])
-            tfile = tarfile.open(archive, 'r:gz')
-            tfile.extractall(directory)
-            os.remove(archive)
-
-            location = "%s/%s" % (directory, os.listdir(directory)[0])
-            move(info.get('main', info.get('scripts')), location, directory)
-
-            shutil.rmtree(location)
-        else: 
-            print 'Download link for version not found.'
-            print info
+        #    shutil.rmtree(location)

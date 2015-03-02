@@ -1,4 +1,5 @@
 {
+  "directory": "/var/www/cdn/",
   "targets": [
     "angular",
     "angular-resource",

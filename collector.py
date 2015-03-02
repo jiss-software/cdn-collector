@@ -36,5 +36,5 @@ for target in config['targets']:
         tmp_directory = 'tmp'
         if listdir('tmp'):
             tmp_directory = "%s/%s" % (tmp_directory, listdir(tmp_directory)[0])
-            move(listdir(tmp_directory), tmp_directory, directory)
+            move(listdir(tmp_directory), tmp_directory, target_directory)
             rmtree(tmp_directory)

@@ -11,7 +11,7 @@ print 'Rebuild CDN collection.'
 for target in config['targets']:
     print 'Collect %s libraries.' % target
 
-    create_dir(target)
+    create_dir("%s/%s" % (config['directory'], target))
 
     lib_info = call("bower info %s -j --allow-root" % target)
     if not lib_info:

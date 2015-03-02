@@ -26,7 +26,7 @@ for target in config['targets']:
     for version in versions:
         print 'Version found %s - %s.' % (target, version)
 
-        target_directory = "%s/%s" % (target, version)
+        target_directory = "%s/%s/%s" % (config['directory'], target, version)
         if not create_dir(target_directory) and listdir(target_directory):
             print 'Skip version, directory already exists %s/%s and not empty' % (target, version)
             continue

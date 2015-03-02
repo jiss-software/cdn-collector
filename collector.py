@@ -38,3 +38,5 @@ for target in config['targets']:
             tmp_directory = "%s/%s" % (tmp_directory, listdir(tmp_directory)[0])
             move(listdir(tmp_directory), tmp_directory, target_directory)
             rmtree(tmp_directory)
+
+call('tree %(d)s -d -L 2 | grep -v %(d)s | grep -v directories > %(d)s/cdn.description' % {'d': config['directory']})

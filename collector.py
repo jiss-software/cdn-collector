@@ -31,7 +31,7 @@ for target in config['targets']:
             print 'Skip version, directory already exists %s/%s and not empty' % (target, version)
             continue
 
-        info = call("bower install %s#%s -j--allow-root" % (target, version), True)
+        info = call("bower install %s#%s -j --allow-root" % (target, version), True)
 
         tmp_directory = 'tmp'
         if listdir('tmp'):

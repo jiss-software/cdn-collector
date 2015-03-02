@@ -10,7 +10,7 @@
     "angular-input-masks",
     "angular-i18n",
     "angular-mocks",
-    "angular-scenario"
+    "angular-scenario",
     "sugar",
     "string-mask",
     "select2",
@@ -20,7 +20,7 @@
     "requirejs",
     "requirejs-text",
     "fontawesome",
-    "noty",
+    "noty"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot" ]
 }

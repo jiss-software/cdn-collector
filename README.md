@@ -12,3 +12,7 @@ Small util for creation dump of JS libraries.
 without debug messages:  
 
     python collector.py | grep -v DEBUG
+    
+with only error log:
+
+    python collector.py | grep ERROR

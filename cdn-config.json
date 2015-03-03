@@ -34,7 +34,9 @@
     "superfish",
     "jcarousel",
     "jquery-cycle2",
-    "jquery.nicescroll"
+    "jquery.nicescroll",
+    "waypoints",
+    "video.js"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot" ]
 }

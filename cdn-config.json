@@ -22,7 +22,7 @@
     "requirejs-text",
     "fontawesome",
     "noty",
-    "mustache.js"
+    "mustache.js",
     "angular-ui-ace",
     "DataTables",
     "handlebars",

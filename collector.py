@@ -15,7 +15,7 @@ for target in config['targets']:
 
     lib_info = call("bower info %s -j --allow-root" % target)
     if not lib_info:
-        print 'Cannot collect information about library'
+        print '[ERROR] Cannot collect information about library'
         break
 
     versions = [
@@ -24,11 +24,9 @@ for target in config['targets']:
     ]
 
     for version in versions:
-        print 'Version found %s - %s.' % (target, version)
-
         target_directory = "%s/%s/%s" % (config['directory'], target, version)
         if not create_dir(target_directory) and listdir(target_directory):
-            print 'Skip version, directory already exists %s/%s and not empty' % (target, version)
+            print '[DEBUG] Version %s#%s: Already exists' % (target, version)
             continue
 
         info = call("bower install %s#%s -j --allow-root" % (target, version), True)
@@ -37,6 +35,7 @@ for target in config['targets']:
         if listdir('tmp'):
             tmp_directory = "%s/%s" % (tmp_directory, listdir(tmp_directory)[0])
             move(listdir(tmp_directory), tmp_directory, target_directory)
+            print '[INFO] Version %s#%s: Downloaded' % (target, version)
             rmtree(tmp_directory)
 
 call('tree %(d)s -d -L 2 | grep -v %(d)s | grep -v directories > %(d)s/cdn.description' % {'d': config['directory']})

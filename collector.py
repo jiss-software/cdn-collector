@@ -38,4 +38,5 @@ for target in config['targets']:
             print '[INFO] Version %s#%s: Downloaded' % (target, version)
             rmtree(tmp_directory)
 
+remove('%s/cdn.description' % config['directory'])
 call('tree %(d)s -d -L 2 | grep -v %(d)s | grep -v directories > %(d)s/cdn.description' % {'d': config['directory']})

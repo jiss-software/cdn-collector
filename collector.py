@@ -29,7 +29,7 @@ for target in config['targets']:
             print '[DEBUG] Version %s#%s: Already exists' % (target, version)
             continue
 
-        info = call("bower install %s#%s -j --allow-root" % (target, version), True)
+        info = call("bower install %s#%s -j --allow-root --force-latest --production" % (target, version), True)
 
         tmp_directory = "tmp/%s" % target
         if path.isdir(tmp_directory):

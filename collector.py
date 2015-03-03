@@ -6,10 +6,10 @@ import re
 
 config = load_json('cdn-config.json')
 
-print 'Rebuild CDN collection.'
+print '[INFO] Rebuild CDN collection.'
 
 for target in config['targets']:
-    print 'Collect %s libraries.' % target
+    print '[INFO] Collect %s libraries.' % target
 
     create_dir("%s/%s" % (config['directory'], target))
 

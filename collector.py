@@ -31,9 +31,8 @@ for target in config['targets']:
 
         info = call("bower install %s#%s -j --allow-root" % (target, version), True)
 
-        tmp_directory = 'tmp'
-        if listdir('tmp'):
-            tmp_directory = "%s/%s" % (tmp_directory, listdir(tmp_directory)[0])
+        tmp_directory = "tmp/%s" % target
+        if os.path.isdir(tmp_directory):
             move(listdir(tmp_directory), tmp_directory, target_directory)
             print '[INFO] Version %s#%s: Downloaded' % (target, version)
             rmtree(tmp_directory)

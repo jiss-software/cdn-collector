@@ -1,4 +1,4 @@
-from os import listdir, remove
+from os import listdir, remove, path
 from shutil import rmtree
 from utils import load_json, call, check_skip, create_dir, extract, move
 import json
@@ -32,7 +32,7 @@ for target in config['targets']:
         info = call("bower install %s#%s -j --allow-root" % (target, version), True)
 
         tmp_directory = "tmp/%s" % target
-        if os.path.isdir(tmp_directory):
+        if path.isdir(tmp_directory):
             move(listdir(tmp_directory), tmp_directory, target_directory)
             print '[INFO] Version %s#%s: Downloaded' % (target, version)
             rmtree(tmp_directory)

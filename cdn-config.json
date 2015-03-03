@@ -16,6 +16,7 @@
     "string-mask",
     "select2",
     "bootstrap",
+    "bootstrap-daterangepicker",
     "jquery",
     "jquery-ui",
     "requirejs",

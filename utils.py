@@ -14,8 +14,6 @@ def extract(archive, directory):
 def create_dir(target):
     if not os.path.isdir(target):
         os.mkdir(target)
-        print 'Directory created: %s' % target
-
         return True
 
     return False

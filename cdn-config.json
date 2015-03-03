@@ -36,7 +36,8 @@
     "jquery-cycle2",
     "jquery.nicescroll",
     "waypoints",
-    "video.js"
+    "video.js",
+    "smoothscroll"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot" ]
 }

@@ -33,7 +33,8 @@
     "camera.slideshow",
     "superfish",
     "jcarousel",
-    "jquery-cycle2"
+    "jquery-cycle2",
+    "jquery.nicescroll"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot" ]
 }

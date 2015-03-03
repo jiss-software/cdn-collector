@@ -21,7 +21,19 @@
     "requirejs",
     "requirejs-text",
     "fontawesome",
-    "noty"
+    "noty",
+    "mustache.js"
+    "angular-ui-ace",
+    "DataTables",
+    "handlebars",
+    "jQuery.serializeObject",
+    
+    "totop.js",
+    "jquery.easing",
+    "camera.slideshow",
+    "superfish",
+    "jcarousel",
+    "jquery-cycle2"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot" ]
 }

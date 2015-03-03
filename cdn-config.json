@@ -24,6 +24,7 @@
     "fontawesome",
     "noty",
     "mustache.js",
+    "moment",
     "angular-ui-ace",
     "DataTables",
     "handlebars",

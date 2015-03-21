@@ -1,6 +1,8 @@
 {
   "directory": "/var/www/cdn",
   "targets": [
+    "jiss-software/noty-config",
+    
     "angular",
     "angular-resource",
     "angular-cookies",

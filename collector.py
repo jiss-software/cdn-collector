@@ -10,8 +10,9 @@ print '[INFO] Rebuild CDN collection.'
 
 for target in config['targets']:
     print '[INFO] Collect %s libraries.' % target
+    target_dir = target[target.find('/') + 1:] if target.find('/') > 0 else target
 
-    create_dir("%s/%s" % (config['directory'], target))
+    create_dir("%s/%s" % (config['directory'], target_dir))
 
     lib_info = call("bower info %s -j --allow-root" % target)
     if not lib_info:
@@ -24,14 +25,14 @@ for target in config['targets']:
     ]
 
     for version in versions:
-        target_directory = "%s/%s/%s" % (config['directory'], target, version)
+        target_directory = "%s/%s/%s" % (config['directory'], target_dir, version)
         if not create_dir(target_directory) and listdir(target_directory):
             print '[DEBUG] Version %s#%s: Already exists' % (target, version)
             continue
 
         call("bower install %s#%s -j --allow-root --force-latest --production" % (target, version), True)
 
-        tmp_directory = "tmp/%s" % target
+        tmp_directory = "tmp/%s" % target_dir
         if path.isdir(tmp_directory):
             move(listdir(tmp_directory), tmp_directory, target_directory)
             print '[INFO] Version %s#%s: Downloaded' % (target, version)

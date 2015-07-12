@@ -44,5 +44,5 @@
     "video.js",
     "smoothscroll"
   ],
-  "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc" ]
+  "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

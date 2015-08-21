@@ -41,7 +41,8 @@
     "jquery.nicescroll",
     "waypoints",
     "video.js",
-    "smoothscroll"
+    "smoothscroll",
+    "dropzone"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

@@ -42,7 +42,8 @@
     "waypoints",
     "video.js",
     "smoothscroll",
-    "dropzone"
+    "dropzone",
+    "bootstrap3-wysiwyg"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

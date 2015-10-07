@@ -43,7 +43,8 @@
     "video.js",
     "smoothscroll",
     "dropzone",
-    "bootstrap3-wysiwyg"
+    "bootstrap3-wysiwyg",
+    "wysihtml5"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

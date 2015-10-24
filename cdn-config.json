@@ -4,6 +4,8 @@
     "jiss-software/noty-config",
     "jiss-software/JiNGle",
     
+    "tinynav",
+    "jquery-hoverIntent",
     "angular",
     "angular-resource",
     "angular-cookies",
@@ -46,8 +48,7 @@
     "bootstrap3-wysiwyg",
     "wysihtml5",
     "tinymce",
-    "angular-ui-tinymce",
-    "tinynav"
+    "angular-ui-tinymce"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

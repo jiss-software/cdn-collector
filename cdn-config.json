@@ -48,7 +48,8 @@
     "bootstrap3-wysiwyg",
     "wysihtml5",
     "tinymce",
-    "angular-ui-tinymce"
+    "angular-ui-tinymce",
+    "sticky"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

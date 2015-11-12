@@ -49,7 +49,8 @@
     "wysihtml5",
     "tinymce",
     "angular-ui-tinymce",
-    "sticky"
+    "sticky",
+    "js-cookie"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

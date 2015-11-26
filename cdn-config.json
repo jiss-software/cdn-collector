@@ -17,6 +17,7 @@
     "angular-i18n",
     "angular-mocks",
     "angular-scenario",
+    "backbone",
     "sugar",
     "string-mask",
     "select2",

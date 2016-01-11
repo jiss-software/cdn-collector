@@ -52,7 +52,8 @@
     "tinymce",
     "angular-ui-tinymce",
     "sticky",
-    "js-cookie"
+    "js-cookie",
+    "bootstrap-multiselect"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

@@ -49,11 +49,10 @@
     "dropzone",
     "bootstrap3-wysiwyg",
     "wysihtml5",
-    "tinymce",
-    "angular-ui-tinymce",
     "sticky",
     "js-cookie",
-    "bootstrap-multiselect"
+    "bootstrap-multiselect",
+    "angular-froala"
   ],
   "skipWords": [ "alpha", "beta", "rc", "build", "snapshot", "vsc", "pre" ]
 }

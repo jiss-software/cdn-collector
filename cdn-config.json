@@ -44,7 +44,7 @@
     "jquery-cycle2": "*",
     "jquery.nicescroll": "*",
     "waypoints": "*",
-    "video.js": ">=4.2.1",
+    "video.js": "==4.2.1",
     "smoothscroll": "*",
     "dropzone": ">=4.2.0",
     "bootstrap3-wysiwyg": "*",

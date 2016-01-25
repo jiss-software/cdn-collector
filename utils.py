@@ -4,6 +4,7 @@ import shutil
 import re
 import os
 import tarfile
+import semver
 
 
 def extract(archive, directory):
@@ -67,8 +68,12 @@ def load_json(conf):
 
 
 def check_skip(text, skips):
+    text = text.lower()
     for word in skips:
         if word in text:
             return True
 
     return False
+
+def check_pattern(text, pattern):
+    return pattern is '*' or semver.match(text, pattern)

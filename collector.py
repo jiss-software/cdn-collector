@@ -1,14 +1,13 @@
 from os import listdir, remove, path
 from shutil import rmtree
-from utils import load_json, call, check_skip, create_dir, extract, move
+from utils import load_json, call, check_skip, check_pattern, create_dir, move
 import json
-import re
 
 config = load_json('cdn-config.json')
 
 print '[INFO] Rebuild CDN collection.'
 
-for target in config['targets']:
+for target, pattern in config['targets']:
     print '[INFO] Collect %s libraries.' % target
     target_dir = target[target.find('/') + 1:] if target.find('/') > 0 else target
 
@@ -21,7 +20,7 @@ for target in config['targets']:
 
     versions = [
         version for version in json.loads(lib_info)['versions']
-        if not check_skip(version, config['skipWords'])
+        if not check_skip(version, config['skipWords']) and check_pattern(version, pattern)
     ]
 
     for version in versions:

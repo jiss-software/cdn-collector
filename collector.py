@@ -7,7 +7,7 @@ config = load_json('cdn-config.json')
 
 print '[INFO] Rebuild CDN collection.'
 
-for target, pattern in config['targets']:
+for target, pattern in config['targets'].iteritems():
     print '[INFO] Collect %s libraries.' % target
     target_dir = target[target.find('/') + 1:] if target.find('/') > 0 else target
 

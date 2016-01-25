@@ -75,5 +75,6 @@ def check_skip(text, skips):
 
     return False
 
+
 def check_pattern(text, pattern):
-    return pattern is '*' or semver.match(text, pattern)
+    return pattern == '*' or semver.match(text, pattern)
